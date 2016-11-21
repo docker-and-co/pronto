@@ -63,3 +63,30 @@ Both ways are secure because of [using docker entrypoint](https://docs.docker.co
 
 Again in case *build your own image*: don't forget add *ENTRYPOINT* at your *Dockerfile*
 or *GITLAB_API_PRIVATE_TOKEN* can be stolen. Don't care if you trust your team.
+
+## Example runner configuration
+
+*Don't copy paste it* just run 
+
+```bash
+sudo gitlab-ci-multi-runner register
+```
+
+Result you can modify, but generally, you need only **environment**s
+```
+[[runners]]
+  name = "Linter with phpcs and eslint"
+  url = "https://code.branderstudio.com/ci"
+  token = "52b7d2e947b18422e91568d3d5292f"
+  executor = "docker"
+  environment = ["GITLAB_API_ENDPOINT=https://gitlab.example.com/api/v3", "GITLAB_API_PRIVATE_TOKEN=qwKJ123gL123efsdaQx-"]
+  [runners.docker]
+    tls_verify = false
+    image = "tomfun/pronto"
+    privileged = false
+    disable_cache = false
+    volumes = ["/cache", "/home/gitlab-runner/.npm:/root/.npm"]
+    allowed_images = ["nothing/nowhere:atall"]
+  [runners.cache]
+
+```

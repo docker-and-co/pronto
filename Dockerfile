@@ -33,4 +33,4 @@ RUN composer global require squizlabs/php_codesniffer=2.* && \
 
 RUN rm -rf /var/lib/apt/lists/*
 
-ENTRYPOINT /bin/pronto-gitlab
+ENTRYPOINT ["/bin/sh", "/bin/pronto-gitlab"]
