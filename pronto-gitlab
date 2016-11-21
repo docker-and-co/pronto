@@ -1,0 +1,5 @@
+#!/bin/bash
+# export GITLAB_API_ENDPOINT="https://gitlab.example.com/api/v3"
+# export GITLAB_API_PRIVATE_TOKEN=qwKJ123gL123efsdaQx-
+echo "$@"
+ruby -E UTF-8 /usr/local/bundle/bin/pronto run -f gitlab "$@"
