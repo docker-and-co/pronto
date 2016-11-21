@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 cd "$CI_PROJECT_DIR"
 export PATH=$PATH:./node_modules/.bin/:/root/.composer/vendor/bin/
 # export GITLAB_API_ENDPOINT="https://gitlab.example.com/api/v3"
