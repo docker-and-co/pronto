@@ -1,5 +1,8 @@
-#!/bin/bash
+#!/usr/bin/env bash
+cd "$CI_PROJECT_DIR"
+export PATH=$PATH:./node_modules/.bin/:/root/.composer/vendor/bin/
 # export GITLAB_API_ENDPOINT="https://gitlab.example.com/api/v3"
 # export GITLAB_API_PRIVATE_TOKEN=qwKJ123gL123efsdaQx-
-echo "$@"
-ruby -E UTF-8 /usr/local/bundle/bin/pronto run -f gitlab "$@"
+#ruby -E UTF-8 /usr/local/bundle/bin/pronto run -f gitlab "$@"
+npm install --color always --loglevel=warn > /dev/null
+ruby -E UTF-8 /usr/local/bundle/bin/pronto run -f gitlab -c origin/master
