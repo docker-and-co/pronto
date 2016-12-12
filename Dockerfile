@@ -32,5 +32,3 @@ RUN composer global require squizlabs/php_codesniffer=2.* && \
     /root/.composer/vendor/bin/phpcs --config-set installed_paths /root/.composer/vendor/escapestudios/symfony2-coding-standard
 
 RUN rm -rf /var/lib/apt/lists/*
-
-ENTRYPOINT ["/bin/sh", "/bin/pronto-gitlab"]
